@@ -24,3 +24,7 @@ class Contact:
         self.email = kwargs.get("email")
         self.gender = kwargs.get("gender")
         self.post_address = kwargs.get("post_address")
+
+    def get_contact_details(self, contact_object):
+        print("Name: {name}\nPhone: {phone_no}\nEmail: {email}\nGender: {gender}"
+              "\nAddress: {post_address}".format(**contact_object))
