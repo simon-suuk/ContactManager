@@ -6,6 +6,9 @@ class Contact:
         self.gender = gender
         self.post_address = post_address
 
+    def __repr__(self):
+        return self.__dict__
+
     def get_user_input(self):
         name = input("enter name: ")
         phone_no = input("enter phone_no: ")
