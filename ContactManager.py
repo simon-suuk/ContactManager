@@ -13,4 +13,4 @@ class Contact:
         gender = input("enter gender: ")
         post_address = input("enter post_address: ")
 
-        return [name, phone_no, email, gender, post_address]
+        return dict(name=name, phone_no=phone_no, email=email, gender=gender, post_address=post_address)
