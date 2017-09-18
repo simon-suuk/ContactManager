@@ -26,17 +26,19 @@ class Contact:
         self.post_address = kwargs.get("post_address")
 
     def get_contact_details(self, contact_object):
+        print("\n***--------------***----------------***")
         print("Name: {name}\nPhone: {phone_no}\nEmail: {email}\nGender: {gender}"
               "\nAddress: {post_address}".format(**contact_object))
 
-#create new contact object
+
+# create new contact object
 new_contact = Contact()
 
-#get user inputs
+# get user inputs
 update_parameters = new_contact.get_user_input()
 
-#perform update to modify contact details
+# perform update to modify contact details
 new_contact.update_contact_details(**update_parameters)
 
-#print contact details
+# print contact details
 new_contact.get_contact_details(new_contact.__repr__())
