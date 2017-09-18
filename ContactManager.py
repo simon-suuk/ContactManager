@@ -17,3 +17,10 @@ class Contact:
         post_address = input("enter post_address: ")
 
         return dict(name=name, phone_no=phone_no, email=email, gender=gender, post_address=post_address)
+
+    def update_contact_details(self, **kwargs):
+        self.name = kwargs.get("name")
+        self.phone_no = kwargs.get("phone_no")
+        self.email = kwargs.get("email")
+        self.gender = kwargs.get("gender")
+        self.post_address = kwargs.get("post_address")
