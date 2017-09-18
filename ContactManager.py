@@ -5,3 +5,12 @@ class Contact:
         self.email = email
         self.gender = gender
         self.post_address = post_address
+
+    def get_user_input(self):
+        name = input("enter name: ")
+        phone_no = input("enter phone_no: ")
+        email = input("enter email: ")
+        gender = input("enter gender: ")
+        post_address = input("enter post_address: ")
+
+        return [name, phone_no, email, gender, post_address]
