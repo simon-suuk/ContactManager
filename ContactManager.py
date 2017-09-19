@@ -1,11 +1,11 @@
 def capture_input():
-    name = input("enter name: ")
-    phone_no = input("enter phone_no: ")
-    email = input("enter email: ")
-    gender = input("enter gender: ")
-    post_address = input("enter post_address: ")
-    return dict(name=name, phone_no=phone_no, email=email,
-                gender=gender, post_address=post_address)
+    nm = input("enter nm: ")
+    ph = input("enter phone: ")
+    em = input("enter em: ")
+    g = input("enter gender: ")
+    p_adr = input("enter post_address: ")
+    return dict(name=nm, phone_no=ph, email=em,
+                gender=g, post_address=p_adr)
 
 
 class Contact:
@@ -39,10 +39,10 @@ class Contact:
 if __name__ == "__main__":
     # get user inputs returned as a dictionary
     # unpack the values to respective instance variables
-    name, phone_no, email, gender, post_address = capture_input().values()
+    c_name, c_phone_no, c_email, c_gender, c_post_address = capture_input().values()
 
     # create new contact object with user inputs
-    new_contact = Contact(name, phone_no, email, gender, post_address)
+    new_contact = Contact(c_name, c_phone_no, c_email, c_gender, c_post_address)
 
     # perform update to modify contact details
     # update_details = capture_input()
