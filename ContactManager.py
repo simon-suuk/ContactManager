@@ -40,6 +40,9 @@ class ContactManager:
     def __init__(self, contacts=[]):
         self.markers = contacts
 
+    def add_contact(self, contact):
+        self.markers.append(contact)
+
 
 if __name__ == "__main__":
     # get user inputs returned as a dictionary
