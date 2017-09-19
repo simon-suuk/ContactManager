@@ -50,6 +50,11 @@ class ContactManager:
                 return contact
         return None
 
+    def search_contact(self, name):
+        for contact in self.contacts:
+            if contact.name == name:
+                return contact
+        return None
 
 if __name__ == "__main__":
     # get user inputs returned as a dictionary
