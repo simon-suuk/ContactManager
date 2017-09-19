@@ -36,14 +36,17 @@ class Contact:
               "\nAddress: {post_address}".format(**self.__repr__()))
 
 
-# get user inputs
-contact_details = capture_input()
+if __name__ == "__main__":
+    # get user inputs returned as a dictionary
+    # unpack the values to respective instance variables
+    name, phone_no, email, gender, post_address = capture_input().values()
 
-# create new contact object
-new_contact = Contact()
+    # create new contact object with user inputs
+    new_contact = Contact(name, phone_no, email, gender, post_address)
 
-# perform update to modify contact details
-new_contact.update_contact(**contact_details)
+    # perform update to modify contact details
+    # update_details = capture_input()
+    # new_contact.update_contact(**update_details)
 
-# print contact details
-new_contact.show_contact()
+    # print contact details
+    new_contact.show_contact()
