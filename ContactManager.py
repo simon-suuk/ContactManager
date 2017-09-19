@@ -36,6 +36,11 @@ class Contact:
               "\nAddress: {post_address}".format(**self.__repr__()))
 
 
+class ContactManager:
+    def __init__(self, contacts=[]):
+        self.markers = contacts
+
+
 if __name__ == "__main__":
     # get user inputs returned as a dictionary
     # unpack the values to respective instance variables
