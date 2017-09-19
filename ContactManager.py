@@ -38,10 +38,17 @@ class Contact:
 
 class ContactManager:
     def __init__(self, contacts=[]):
-        self.markers = contacts
+        self.contacts = contacts
 
     def add_contact(self, contact):
         self.markers.append(contact)
+
+    def remove_contact(self, name):
+        for contact in self.contacts:
+            if contact.name == name:
+                self.contacts.remove(contact)
+                return contact
+        return None
 
 
 if __name__ == "__main__":
