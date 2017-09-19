@@ -20,14 +20,14 @@ class Contact:
     def __repr__(self):
         return self.__dict__
 
-    def update_contact(self, **kwargs):
+    def update_contact_details(self, **kwargs):
         self.name = kwargs.get("name")
         self.phone_no = kwargs.get("phone_no")
         self.email = kwargs.get("email")
         self.gender = kwargs.get("gender")
         self.post_address = kwargs.get("post_address")
 
-    def show_contact(self):
+    def show_contact_details(self):
         print("\n***--------------***----------------***")
         print("Name: {name}"
               "\nPhone: {phone_no}"
@@ -66,10 +66,10 @@ if __name__ == "__main__":
 
     # perform update to modify contact details
     # update_details = capture_input()
-    # new_contact.update_contact(**update_details)
+    # new_contact.update_contact_details(**update_details)
 
     # print contact details
-    new_contact.show_contact()
+    new_contact.show_contact_details()
 
     contact_list = ContactManager()
     contact_list.add_contact(new_contact)
