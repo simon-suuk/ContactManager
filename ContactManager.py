@@ -1,7 +1,7 @@
 def capture_input():
-    nm = input("enter nm: ")
-    ph = input("enter phone: ")
-    em = input("enter em: ")
+    nm = input("enter name: ")
+    ph = input("enter phone number: ")
+    em = input("enter email: ")
     g = input("enter gender: ")
     p_adr = input("enter post_address: ")
     return dict(name=nm, phone_no=ph, email=em,
@@ -41,7 +41,7 @@ class ContactManager:
         self.contacts = contacts
 
     def add_contact(self, contact):
-        self.markers.append(contact)
+        self.contacts.append(contact)
 
     def remove_contact(self, name):
         for contact in self.contacts:
@@ -70,3 +70,7 @@ if __name__ == "__main__":
 
     # print contact details
     new_contact.show_contact()
+
+    contact_list = ContactManager()
+    contact_list.add_contact(new_contact)
+    print(contact_list.search_contact("simon").__repr__())
