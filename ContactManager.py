@@ -34,6 +34,7 @@ class Contact:
               "\nEmail: {email}"
               "\nGender: {gender}"
               "\nAddress: {post_address}".format(**self.__repr__()))
+        print("***--------------***----------------***")
 
 
 class ContactManager:
@@ -57,6 +58,15 @@ class ContactManager:
         return None
 
 if __name__ == "__main__":
+    print("Welcome to ContactManager!"
+          "\nYou can use the following commands:"
+          "\n 1. \"a\" to add new contact"
+          "\n 2. \"s\" to search contact"
+          "\n 3. \"r\" to remove contact\n")
+
+    # get command issued by user
+    command = input()
+
     # get user inputs returned as a dictionary
     # unpack the values to respective instance variables
     c_name, c_phone_no, c_email, c_gender, c_post_address = capture_input().values()
@@ -69,8 +79,14 @@ if __name__ == "__main__":
     # new_contact.update_contact_details(**update_details)
 
     # print contact details
-    new_contact.show_contact_details()
+    # new_contact.show_contact_details()
 
     contact_list = ContactManager()
+
     contact_list.add_contact(new_contact)
-    print(contact_list.search_contact("simon").__repr__())
+
+    search_results = contact_list.search_contact("simon")
+    if search_results is not None:
+        search_results.show_contact_details()
+    else:
+        print("search result: {}".format(search_results))
