@@ -1,3 +1,6 @@
+import csv
+
+
 def capture_input():
     nm = input("enter name: ")
     ph = input("enter phone number: ")
@@ -38,10 +41,15 @@ class Contact:
 
 
 class ContactManager:
-    def __init__(self, contacts=None):
-        if contacts is None:
-            contacts = []
-        self.contacts = contacts
+    def __init__(self, contacts_file=None):
+        if contacts_file is None:
+            with open("temp_file.csv", "w") as newFile:
+                self.contacts_file = csv.writer(newFile)
+                self.contacts_file.writerow("")
+        else:
+            with open(contacts_file, "w") as newFile:
+                self.contacts_file = csv.writer(newFile)
+                self.contacts_file.writerow("")
 
     def add_contact(self, contact):
         self.contacts.append(contact)
@@ -58,6 +66,7 @@ class ContactManager:
             if contact.name == name:
                 return contact
         return None
+
 
 if __name__ == "__main__":
     print("Welcome to ContactManager!"
