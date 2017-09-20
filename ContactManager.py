@@ -38,7 +38,9 @@ class Contact:
 
 
 class ContactManager:
-    def __init__(self, contacts=[]):
+    def __init__(self, contacts=None):
+        if contacts is None:
+            contacts = []
         self.contacts = contacts
 
     def add_contact(self, contact):
