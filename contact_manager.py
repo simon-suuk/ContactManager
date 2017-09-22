@@ -1,4 +1,5 @@
 import csv
+import os
 
 
 def capture_input():
@@ -67,16 +68,22 @@ class ContactManager:
         with open(self.contacts_file, 'a', newline="") as file_to_append_to:
             add_contact_file_writer = csv.writer(file_to_append_to)
             add_contact_file_writer.writerow([contact.get_name(), contact.get_phone_no(),
-                                             contact.get_email(), contact.get_gender(),
-                                             contact.get_post_address()])
+                                              contact.get_email(), contact.get_gender(),
+                                              contact.get_post_address()])
 
     def remove_contact(self, name):
-        with open(self.contacts_file, 'r', newline="") as file_to_search:
-            search_contact_file_reader = csv.reader(file_to_search)
-            for row in search_contact_file_reader:
-                if name in row:
-                    return row[0], row[1], row[2], row[3], row[4]
-        return None
+        remove_result = None
+        with open(self.contacts_file, 'r', newline="") as source_file, \
+                open("temp_file.csv", "a", newline="") as destination_file:
+            temp_file_writer = csv.writer(destination_file)
+            for row in csv.reader(source_file):
+                if name not in row:
+                    temp_file_writer.writerow(row)
+                else:
+                    remove_result = row[0], row[1], row[2], row[3], row[4]
+        os.remove(self.contacts_file)
+        os.renames("temp_file.csv", self.contacts_file)
+        return remove_result
 
     def search_contact(self, name):
         with open(self.contacts_file, 'r', newline="") as file_to_search:
@@ -115,9 +122,18 @@ if __name__ == "__main__":
 
     contact_list.add_contact(new_contact)
 
-    search_results = contact_list.search_contact("simon")
+    # search for contact by name
+    search_results = contact_list.search_contact("elijah")
     if search_results is not None:
         r_name, r_phone_no, r_email, r_gender, r_post_address = search_results
         show_contact_details(r_name, r_phone_no, r_email, r_gender, r_post_address)
     else:
         print("search result: {}".format(search_results))
+
+    # delete a contact by name
+    remove_results = contact_list.remove_contact("baaman")
+    if remove_results is not None:
+        r_name, r_phone_no, r_email, r_gender, r_post_address = remove_results
+        show_contact_details(r_name, r_phone_no, r_email, r_gender, r_post_address)
+    else:
+        print("remove result: {}".format(search_results))
