@@ -1,6 +1,8 @@
 import csv
 import os
 
+print("I am learning how to use Git hub \n and i have to make a modification to this following code")
+
 
 def capture_input():
     nm = input("enter name: ")
@@ -118,7 +120,7 @@ if __name__ == "__main__":
           "\n 4. \"e\" to edit contact\n")
 
     # get command issued by user
-    command = input("command? ---> ")
+    command = input("Please Enter the command? ---> ")
 
     contact_list = ContactManager("contact_list.csv")
 
@@ -134,7 +136,7 @@ if __name__ == "__main__":
             # add contact to list
             contact_list.add_contact(new_contact)
         elif command == "s":
-            contact_name = input("contact name? ---> ")
+            contact_name = input("Please input contact name? ---> ")
             # search for contact by name
             search_results = contact_list.search_contact(contact_name)
             if search_results is not None:
@@ -144,7 +146,7 @@ if __name__ == "__main__":
                 print("search result: {}".format(search_results))
                 print("")
         elif command == "r":
-            contact_name = input("contact name? ---> ")
+            contact_name = input(" Please input modified contact name? ---> ")
             # delete a contact by name
             remove_results = contact_list.remove_contact(contact_name)
             if remove_results is not None:
@@ -162,5 +164,5 @@ if __name__ == "__main__":
             print("Sorry, I don't understand you")
 
         # get command issued by user
-        command = input("command? ---> ")
+        command = input("Please Enter the command? ---> ")
         print("")
